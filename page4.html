@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Users Table</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 5px;
+            text-align: left;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="app3.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+    <table>
+        <thead>
+            <tr>
+                <th>Ім'я</th>
+                <th>Прізвище</th>
+                <th>День народження</th>
+                <th>Вік</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="user in users | orderBy:'age'">
+                <td>{{user.firstName}}</td>
+                <td>{{user.lastName}}</td>
+                <td>{{user.dateOfBirth | date:'dd.MM.yyyy'}}</td>
+                <td>{{user.age}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="index.html">На головну</a>
+</body>
+</html>

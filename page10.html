@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Users Table</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 5px;
+            text-align: left;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="app9.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myController">
+    <label>Кількість людей:</label>
+    <input type="number" ng-model="limit" min="1">
+    <label>З якого індексу починаємо:</label>
+    <input type="number" ng-model="startIndex" min="1">
+    <br><br>
+    <table>
+        <thead>
+            <tr>
+                <th>Ім'я</th>
+                <th>Прізвище</th>
+                <th>Вік</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="user in users | limitTo: limit : (startIndex - 1)">
+                <td>{{user.firstName}}</td>
+                <td>{{user.lastName}}</td>
+                <td>{{user.age}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="index.html">На головну</a>
+</body>
+</html>
